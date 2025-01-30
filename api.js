@@ -33,6 +33,9 @@ const db=new Client({
 
 app.get('/export-excel', async (req, res) => {
     try {
+        res.setHeader("Access-Control-Allow-Origin", "*"); 
+res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         const {id,startDate,endDate}=req.query;
         const id1=parseInt(id);
         var query='SELECT id, category, amount, date FROM expenses WHERE 1=1';
@@ -85,6 +88,9 @@ app.get('/export-excel', async (req, res) => {
 
 app.get('/export-excel-income', async (req, res) => {
     try {
+        res.setHeader("Access-Control-Allow-Origin", "*"); 
+res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         const {id,startDate,endDate}=req.query;
         const id1=parseInt(id);
         const params=[]
@@ -170,6 +176,9 @@ app.delete("/delete/expense/:id",async(req,res)=>{
 
 app.get("/stats1", async (req, res) => {
     try {
+        res.setHeader("Access-Control-Allow-Origin", "*"); 
+res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
             const {id,startDate,endDate}=req.query;
             const id1=parseInt(id);
             var query1="SELECT SUM(amount) AS total_food FROM expenses WHERE category = 'Food'";
@@ -236,6 +245,9 @@ app.get("/stats1", async (req, res) => {
 
 app.get("/stats2", async (req, res) => {
     try {
+        res.setHeader("Access-Control-Allow-Origin", "*"); 
+res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         const {id,startDate,endDate}=req.query;
         const id1=parseInt(id);
         const params=[]
